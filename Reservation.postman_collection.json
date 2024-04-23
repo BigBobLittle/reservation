@@ -1,0 +1,1002 @@
+{
+	"info": {
+		"_postman_id": "e7756f9e-0102-4f0b-adb7-ed19157dc9c0",
+		"name": "Reservation",
+		"description": "Below are postman endpoints to test the various functions of this codebase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1238109",
+		"_collection_link": "https://www.postman.com/uppercasetechnologies/workspace/test-workspace/collection/1238109-e7756f9e-0102-4f0b-adb7-ed19157dc9c0?action=share&source=collection_link&creator=1238109"
+	},
+	"item": [
+		{
+			"name": "Create event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const res = pm.response.json()",
+							"pm.environment.set('eventId', res.eventId)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"totalSeats\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/events",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"events"
+					]
+				},
+				"description": "Create an event"
+			},
+			"response": [
+				{
+					"name": "Create event",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"totalSeats\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"events"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"43-McCfoRAV8GfeH3EGq8pEsAvJrS8\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Apr 2024 10:27:52 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"eventId\": \"c106d93b-c1a0-42c9-8f67-9cc42f0f3795\",\n    \"totalSeats\": 100\n}"
+				},
+				{
+					"name": "Create event",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"totalSeats\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"43-v40PFDEzy+chYMEXODRwZll3zA8\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:40:27 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"eventId\": \"c93a9693-1b2c-49e4-ab62-755c249bb135\",\n    \"totalSeats\": 100\n}"
+				}
+			]
+		},
+		{
+			"name": "List available seats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/seats/:eventId/availableSeats",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seats",
+						":eventId",
+						"availableSeats"
+					],
+					"variable": [
+						{
+							"id": 0,
+							"key": "eventId",
+							"value": "{{eventId}}",
+							"type": "string"
+						}
+					]
+				},
+				"description": "List available seats"
+			},
+			"response": [
+				{
+					"name": "List available seats",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/seats/{{eventId}}/availableSeats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"seats",
+								"{{eventId}}",
+								"availableSeats"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-yk86WBtVQLGcchAd6fE3cBt9T4Q\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Apr 2024 11:00:06 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"availableSeats\": []\n}"
+				},
+				{
+					"name": "List available seats",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/seats/:eventId/availableSeats",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"seats",
+								":eventId",
+								"availableSeats"
+							],
+							"variable": [
+								{
+									"id": 0,
+									"key": "eventId",
+									"value": "{{eventId}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15-yk86WBtVQLGcchAd6fE3cBt9T4Q\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:40:39 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"availableSeats\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "hold a seat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"pm.environment.set(\"seatId\", response.data.seatId)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"{{userId}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/seats/:eventId/hold",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seats",
+						":eventId",
+						"hold"
+					],
+					"variable": [
+						{
+							"id": 0,
+							"key": "eventId",
+							"value": "{{eventId}}",
+							"type": "string"
+						}
+					]
+				},
+				"description": "Hold seat for an event"
+			},
+			"response": [
+				{
+					"name": "hold a seat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"{{userId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/seats/:eventId/hold",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"seats",
+								":eventId",
+								"hold"
+							],
+							"variable": [
+								{
+									"id": 0,
+									"key": "eventId",
+									"value": "{{eventId}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5d-+fxkeEDKUKPuztD+wxMH3dsZMpI\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:40:50 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Seat successfully held\",\n    \"data\": {\n        \"seatId\": \"9b4158a7-63ff-4bf4-9c41-13ebf02f6361\"\n    }\n}"
+				},
+				{
+					"name": "hold a seat - max of 5 reached",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"{{userId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/seats/:eventId/hold",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"seats",
+								":eventId",
+								"hold"
+							],
+							"variable": [
+								{
+									"id": 0,
+									"key": "eventId",
+									"value": "{{eventId}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-NN+jVHVgRppp3tvrXCBbkMz4asM\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:41:04 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Maximum seats already held by the user for this event\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List held seats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/seats/:eventId/:userId/heldSeats",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seats",
+						":eventId",
+						":userId",
+						"heldSeats"
+					],
+					"variable": [
+						{
+							"id": 0,
+							"key": "eventId",
+							"value": "{{eventId}}",
+							"type": "string"
+						},
+						{
+							"key": "userId",
+							"value": "{{userId}}",
+							"type": "string"
+						}
+					]
+				},
+				"description": "List all held seats per event by user"
+			},
+			"response": [
+				{
+					"name": "List held seats",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/seats/:eventId/:userId/heldSeats",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"seats",
+								":eventId",
+								":userId",
+								"heldSeats"
+							],
+							"variable": [
+								{
+									"id": 0,
+									"key": "eventId",
+									"value": "{{eventId}}",
+									"type": "string"
+								},
+								{
+									"key": "userId",
+									"value": "{{userId}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "707",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2c3-gN9SblfdILPh4xsk8fmDgYmWaz4\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:41:33 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Held seats by this user fetched successfully\",\n    \"data\": [\n        {\n            \"id\": \"9fbb7045-7ac5-44f9-8109-74ec8b305f60\",\n            \"eventId\": \"c93a9693-1b2c-49e4-ab62-755c249bb135\",\n            \"status\": \"hold\",\n            \"userId\": \"10000\"\n        },\n        {\n            \"id\": \"9b4158a7-63ff-4bf4-9c41-13ebf02f6361\",\n            \"eventId\": \"c93a9693-1b2c-49e4-ab62-755c249bb135\",\n            \"status\": \"hold\",\n            \"userId\": \"10000\"\n        },\n        {\n            \"id\": \"49d4d7dd-800f-4718-8411-fbe8e9160a91\",\n            \"eventId\": \"c93a9693-1b2c-49e4-ab62-755c249bb135\",\n            \"status\": \"hold\",\n            \"userId\": \"10000\"\n        },\n        {\n            \"id\": \"15c09dee-f607-4ea5-85d8-fe20bd4ca8d4\",\n            \"eventId\": \"c93a9693-1b2c-49e4-ab62-755c249bb135\",\n            \"status\": \"hold\",\n            \"userId\": \"10000\"\n        },\n        {\n            \"id\": \"7cf41fb4-193e-4c3c-8014-a70962538d52\",\n            \"eventId\": \"c93a9693-1b2c-49e4-ab62-755c249bb135\",\n            \"status\": \"hold\",\n            \"userId\": \"10000\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "reserve seat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"pm.environment.set('reservedSeatId', response.data.seatId)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"{{userId}}\", \n    \"eventId\":  \"{{eventId}}\", \n    \"seatId\": \"{{seatId}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/seats/reserve",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seats",
+						"reserve"
+					]
+				},
+				"description": "Reserve a seat"
+			},
+			"response": [
+				{
+					"name": "reserve seat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"{{userId}}\", \n    \"eventId\":  \"{{eventId}}\", \n    \"seatId\": \"{{seatId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/seats/reserve",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"seats",
+								"reserve"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "97",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"61-Ihkk/JP7TBQWaO/c/wtxnLkreP8\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:41:44 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Seat reserved successfully\",\n    \"data\": {\n        \"seatId\": \"9fbb7045-7ac5-44f9-8109-74ec8b305f60\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "refresh hold",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"{{userId}}\", \n    \"eventId\":  \"{{eventId}}\", \n    \"seatId\": \"{{seatId}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/seats/refresh",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seats",
+						"refresh"
+					]
+				},
+				"description": "Refresh the hold on a seat"
+			},
+			"response": [
+				{
+					"name": "refresh hold",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"{{userId}}\", \n    \"eventId\":  \"{{eventId}}\", \n    \"seatId\": \"{{seatId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/seats/refresh",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"seats",
+								"refresh"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-0sQMv5bWL/YVW32YSc8b2WPhbR4\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:41:56 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Hold refreshed successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List all my reserved seats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/seats/:userId/listMyReservedSeats",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seats",
+						":userId",
+						"listMyReservedSeats"
+					],
+					"variable": [
+						{
+							"id": 0,
+							"key": "userId",
+							"value": "{{userId}}",
+							"type": "string"
+						}
+					]
+				},
+				"description": "LIst a users' reserved seat"
+			},
+			"response": [
+				{
+					"name": "List all my reserved seats",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/seats/:userId/listMyReservedSeats",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"seats",
+								":userId",
+								"listMyReservedSeats"
+							],
+							"variable": [
+								{
+									"id": 0,
+									"key": "userId",
+									"value": "{{userId}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-aACgnIzc6zJepu1ERvWmWIJPniE\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 14:42:05 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Reserved seats fetched successfully\",\n    \"data\": [\n        {\n            \"id\": \"9fbb7045-7ac5-44f9-8109-74ec8b305f60\",\n            \"eventId\": \"c93a9693-1b2c-49e4-ab62-755c249bb135\",\n            \"status\": \"reserved\",\n            \"userId\": \"10000\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Confirm Remaining Hold Time after Refresh hold",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"{{userId}}\", \n    \"eventId\":  \"{{eventId}}\", \n    \"seatId\": \"{{seatId}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/seats/checkRemainSeatHoldTime",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"seats",
+						"checkRemainSeatHoldTime"
+					]
+				},
+				"description": "Check the hold time after refresh hold endpoint has been used"
+			},
+			"response": []
+		}
+	]
+}
